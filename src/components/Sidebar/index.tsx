@@ -11,7 +11,7 @@ export function Sidebar () {
       <nav>
         <ul>
           <li>
-            <a href="#">
+            <a href="#" className="active">
               <BurgerIcon />
               <span>Hamburgueres</span>
             </a>
