@@ -19,7 +19,7 @@ export function Sidebar () {
 
 
     return (
-    <Container>
+    <Container isMenuOpen={menuOpen}>
       <button type="button" onClick={handleToggleMenu}>
         <img src={menuImg} alt="Abrir e fechar o menu"/>
       </button>
