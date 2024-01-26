@@ -12,7 +12,7 @@ export default function  Burgers () {
       description:
        " O artesanal tamanho família recheado coom três carnes suculentas, queijo e bacon.",
        price: 25.5,
-      image: "https://imgur.com/t/hamburguer/StQtgHf"
+      image: "https://i.imgur.com/upjIUnG.jpg"
     },
     {
       id: 2,
@@ -20,7 +20,7 @@ export default function  Burgers () {
       name: "Extra Bacon",
       description:" Criado para amantes de bacon, possui emtodas as suas camadas bacon bem assado e  queijo e carne",
        price: 23.5,
-      image: "https://imgur.com/t/hamburguer/N2dUl6v"
+      image: "https://i.imgur.com/B4J04AJ.jpg"
     }
   ]
   return (
