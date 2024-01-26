@@ -13,7 +13,7 @@ export const Title = styled.h1 `
 
   &::before {
     content: '';
-    background: ${({ theme}) => theme.colors.white};
+    background: ${({ theme }) => theme.colors.white};
     width: 42px;
     height: 5px;
     flex-shrink: 0;
@@ -21,13 +21,12 @@ export const Title = styled.h1 `
   }
 
   @media (max-width: 720ps) {
-    font-size: 2rem;
+    font-size: ${({ theme }) => theme.fontSize['3xl']};
     justify-content: center;
 
     &::before {
       display: none;
     }
   }
-
 `
 
