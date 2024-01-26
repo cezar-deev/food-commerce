@@ -1,7 +1,7 @@
 import  styled  from 'styled-components';
 
 export const Title = styled.h1 `
-  dispay: flex;
+  display: flex;
   align-items: center;
   gap: 0.5rem;
 
