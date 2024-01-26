@@ -4,7 +4,7 @@ import { SnackTitle } from "../../../components/SnackTitle"
 export default function  Burgers () {
   return (
     <>
-      <Head title="Hambúrgueres" description="Nossos melhores Burguers"/>
+      <Head title="Hambúrgueres" />
       <SnackTitle>Hambúrgueres</SnackTitle>
     </>
   )
