@@ -5,32 +5,27 @@ import { Head } from "../../../components/Head"
 import { SnackTitle } from "../../../components/SnackTitle"
 import { Snacks } from "../../../components/Snacks"
 
+import { getBurgers } from "../../../services/api"
+
 export default function  Burgers () {
 
-  const data = [
-    {
-      id: 1,
-      snack: "burger",
-      name: "Mega",
-      description:
-       " O artesanal tamanho família recheado coom três carnes suculentas, queijo e bacon.",
-       price: 25.5,
-      image: "https://i.imgur.com/upjIUnG.jpg"
-    },
-    {
-      id: 2,
-      snack: "burger",
-      name: "Extra Bacon",
-      description:" Criado para amantes de bacon, possui emtodas as suas camadas bacon bem assado e  queijo e carne",
-       price: 23.5,
-      image: "https://i.imgur.com/B4J04AJ.jpg"
-    }
-  ]
+  const [burgers, setBurgers] = useState([])
+
+  useEffect(() => {
+    (async () => {
+      const BurgersRequest = await getBurgers()
+
+      setBurgers(BurgersRequest.data)
+    })()
+
+
+  },[])
+
   return (
     <>
       <Head title="Hambúrgueres" />
       <SnackTitle>Hambúrgueres</SnackTitle>
-      <Snacks snacks={data}></Snacks>
+      <Snacks snacks={burgers}></Snacks>
     </>
   )
 }
