@@ -28,7 +28,7 @@ export const SkeletonElement = styled.div<SkeletonProps>`
 
     animation: ${shimmerEffect} 1s lenear infinite;
 
-    ${({ type}) => type === 'title' &&
+    ${({ type }) => type === 'title' &&
     css`
       width: 75%;
       height: 32px;
@@ -50,7 +50,7 @@ export const SkeletonElement = styled.div<SkeletonProps>`
       border-radius: 50%;
     `}
 
-        ${({ type}) => type === 'thumbnail' &&
+    ${({ type}) => type === 'thumbnail' &&
     css`
       width: 100%;
       height: 200px;
