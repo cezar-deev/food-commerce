@@ -1,4 +1,4 @@
-export interface SanckData {
+export interface SnackData {
   id: number;
   snack: string;
   name: string;
