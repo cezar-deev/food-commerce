@@ -55,7 +55,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <Theme>
-        <SnackContext.Provider value = {{burgers}} >
+        <SnackContext.Provider value = {{burgers, pizza , drinks, iceCreams }} >
           <AppRoutes />
           <GlobalStyle />
           <Normalize />
