@@ -1,6 +1,6 @@
 
 import { useContext } from "react"
-import { SnackContext } from "../../../App"
+import { SnackContext } from "../../../contexts/SnackContexts"
 
 import { Head } from "../../../components/Head"
 import { SnackTitle } from "../../../components/SnackTitle"
