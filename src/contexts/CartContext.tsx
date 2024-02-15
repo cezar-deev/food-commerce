@@ -23,3 +23,13 @@ interface CartContextProps {
   removeSnackFromCart: ({id, snack} : RemoveSnackfromCart) => void
   updateCart: ({id, snack, newQuantity} : UpdateCartProps) => void
 }
+
+interface CartProviderProps {
+  children: ReactNode
+}
+
+export const CartContext = createContext ({} as CartContextProps)
+
+export function CartProvider ({ children } : CartProviderProps) {
+ //
+}
