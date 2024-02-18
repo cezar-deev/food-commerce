@@ -34,6 +34,22 @@ export function CartProvider ({ children } : CartProviderProps) {
   const [cart, setCart] = useState<Snack[]>([])
 
   function addSnackIntoCart(snack: SnackData): void {
+    // buscar
+    const snackExistentInCart = cart.find((item) => item.snack === snack.snack && item.id === snack.id)
+
+
+    // atualizar
+        if(snackExistentInCart) {
+          const newCart = cart.map( (item)=> {
+            if (item.id === snack.id) {
+              
+            }
+          })
+        }
+
+    // adicionar
+
+
     const newSnack = { ...snack, quantity: 1, subtotal: snack.price }
     const newCart = [ ...cart, newSnack] // push de um array
 
