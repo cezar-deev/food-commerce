@@ -40,5 +40,14 @@ export const Container = styled(Link)`
     color: ${({ theme }) => theme.colors.yellow};
   }
 
+  @media (max-width: 720px) {
+    top: 0.5rem;
+    bottom: initial;
+
+    span:first-child {
+      display: none;
+    }
+  }
+
 
 `
