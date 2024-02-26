@@ -11,4 +11,20 @@ export const Container = styled.header`
   img {
     width: 8rem;
   }
+
+  > div {
+    background: none;
+    border: none;
+
+    display: flex;
+    align-Items: center;
+    gap: 0.5rem;
+
+    svg {
+      flex-shrink: 0;
+      fill: ${({ theme }) => theme.colors.white};
+      width: 2.875rem;
+      height: 2.875rem;
+    }
+  }
 `
