@@ -20,6 +20,20 @@ export const Container = styled.header`
     align-Items: center;
     gap: 0.5rem;
 
+    div {
+      text-align: right;
+
+      h3 {
+        margin-bottom: 0.123rem;
+        font-weight: 500;
+        color: ${({ theme }) => theme.colors.white};
+      }
+
+      span {
+        color: ${({ theme }) => theme.colors.yellow};
+      }
+    }
+
     svg {
       flex-shrink: 0;
       fill: ${({ theme }) => theme.colors.white};
