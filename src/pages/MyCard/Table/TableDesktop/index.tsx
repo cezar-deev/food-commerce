@@ -21,7 +21,7 @@ export function TableDesktop() {
           {cart.map((item) => (
             <tr key={`${item.snack}-${item.id}`}>
               <td>
-                <img src={item.image} />
+                <img src={item.image} alt={item.name}/>
               </td>
               <td>
                 <h4>{item.name}</h4>

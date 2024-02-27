@@ -7,7 +7,7 @@ export const Container = styled.main`
 
   table {
     width: 100%;
-    border-spacing: 0 0 ;
+    border-spacing: 0 0;
     border-collapse: collapse;
   }
 
@@ -50,7 +50,7 @@ export const Container = styled.main`
     &:first-child {
       width: 7.5rem;
       padding-left: 0;
-      padding-bottom: 0;
+      padding-bottom: 1rem;
 
       img {
         object-fit: cover;
@@ -88,8 +88,6 @@ export const Container = styled.main`
           width: 1.5rem;
           height: 1.5rem;
         }
-
-
       }
     }
 
