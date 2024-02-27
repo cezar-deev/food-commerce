@@ -1,3 +1,14 @@
 export function TableDesktop() {
-  return <h1>Table Desktop</h1>
+  return (
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>Lanche</th>
+          <th>Qtd</th>
+          <th>Subtotal</th>
+        </tr>
+      </thead>
+    </table>
+  )
 }
