@@ -39,6 +39,61 @@ export const Container = styled.main`
       font-weight: 700;
       font-size: 1.5rem;
     }
+
+    /*quantidade*/
+
+    h5 {
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+
+    &:first-child {
+      width: 7.5rem;
+      padding-left: 0;
+      padding-bottom: 0;
+
+      img {
+        object-fit: cover;
+        width: 7.5rem;
+        height: 7.5rem;
+        border-radius: 8px;
+      }
+    }
+
+    &:nth-child(2){
+      padding-left: 2rem;
+    }
+
+    &:nth-child(2),
+    &:nth-child(2) {
+      width: 11rem;
+    }
+
+    &:last-child {
+      width: 1.5rem;
+      padding-right: 0;
+
+      /*ação / deletar*/
+      button {
+        background: nome;
+        border: none;
+        width:100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        svg {
+          fill: ${({ theme }) => theme.colors.yellow};
+          width: 1.5rem;
+          height: 1.5rem;
+        }
+
+
+      }
+    }
+
+
   }
 
 
