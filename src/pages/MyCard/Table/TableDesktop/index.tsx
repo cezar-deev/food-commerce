@@ -1,8 +1,8 @@
 import { useCart } from "../../../../hooks/useCart"
 import { currencyFormat } from "../../../../helpers/currencyFormat"
 
-import { plusImg} from "../../../../assets/circle-plus.svg"
-import { minusImg} from "../../../../assets/circle-minus.svg"
+import plusImg from "../../../../assets/circle-plus.svg"
+import minusImg from "../../../../assets/circle-minus.svg"
 
 import { Container } from "./style"
 
@@ -38,13 +38,13 @@ export function TableDesktop() {
                   >
                     < img src={minusImg} alt="Remover quantidade" />
                   </button>
+                  <span>{`${item.quantity}`.padStart(2, '0')}</span>
                   <button
                     type="button"
                     onClick={() => console.log(`aumentar sanack`, item)}
                   >
                     < img src={plusImg} alt="Remover quantidade" />
                   </button>
-                  <span>{`${item.quantity}`.padStart(2, '0')}</span>
                 </div>
               </td>
               <td>
