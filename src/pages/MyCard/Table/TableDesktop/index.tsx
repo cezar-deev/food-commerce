@@ -27,7 +27,7 @@ export function TableDesktop() {
                 <h4>{item.name}</h4>
                 <span>{currencyFormat(item.price)}</span>
               </td>
-              <td>{item.quantity}</td>
+              <td>{`${item.quantity}`.padStart(2, '0')}</td>
               <td>
                 <h5>{currencyFormat(item.subtotal)}</h5>
               </td>
