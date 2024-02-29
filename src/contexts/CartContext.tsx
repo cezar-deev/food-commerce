@@ -9,7 +9,7 @@ interface Snack extends SnackData {
   quantity: number
   subtotal: number
 }
-
+/*
 interface RemoveSnackfromCart {
   id: number
   snack: string
@@ -20,11 +20,11 @@ interface UpdateCartProps {
   snack: string
   newQuantity: number
 }
-
+*/
 interface CartContextProps {
   cart: Snack[]
   addSnackIntoCart: (snack: SnackData) => void
-  //removeSnackFromCart: ({id, snack} : RemoveSnackfromCart) => void
+  removeSnackFromCart: (id: number, snack: Snack ) => void
   //updateCart: ({id, snack, newQuantity} : UpdateCartProps) => void
 }
 
@@ -65,6 +65,10 @@ export function CartProvider ({ children } : CartProviderProps) {
 
     toast.success(`${snackEmoji(snack.snack)} ${snack.name} adiciondo nos pedidos`)
     setCart(newCart)
+  }
+
+  function removeSnackFromCart (id: number, snack: Snack) {
+
   }
 
   return (
