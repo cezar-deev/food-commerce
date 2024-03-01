@@ -63,7 +63,9 @@ export function CartProvider ({ children } : CartProviderProps) {
     setCart(newCart)
   }
 
-  function updateSnackQuality (snack: Snack, newQuantity: number) {}
+  function updateSnackQuality (snack: Snack, newQuantity: number) {
+    return
+  }
 
   function snackCartIncrement (snack: Snack) {
     updateSnackQuality(snack, snack.quantity + 1)
@@ -73,7 +75,9 @@ export function CartProvider ({ children } : CartProviderProps) {
     updateSnackQuality(snack, snack.quantity - 1)
   }
 
-  function confirmOrder () {}
+  function confirmOrder () {
+    return
+  }
 
   return (
     <CartContext.Provider
