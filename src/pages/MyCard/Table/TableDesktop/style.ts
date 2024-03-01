@@ -93,7 +93,7 @@ export const Container = styled.main`
 
       /*ação / deletar*/
       button {
-        background: nome;
+        background: none;
         border: none;
         width:100%;
 
