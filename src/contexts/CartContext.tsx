@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useEffect, useState } from 'react'
+import { ReactNode, createContext, useState } from 'react'
 import { toast } from 'react-toastify'
 
 import { SnackData } from '../interfaces/SnackData'
@@ -9,23 +9,13 @@ interface Snack extends SnackData {
   quantity: number
   subtotal: number
 }
-/*
-interface RemoveSnackfromCart {
-  id: number
-  snack: string
-}
-
-interface UpdateCartProps {
-  id: number
-  snack: string
-  newQuantity: number
-}
-*/
 interface CartContextProps {
   cart: Snack[]
   addSnackIntoCart: (snack: SnackData) => void
-  removeSnackFromCart: (id: number, snack: Snack ) => void
-  //updateCart: ({id, snack, newQuantity} : UpdateCartProps) => void
+  removeSnackFromCart: (id: number, snack: Snack) => void
+  snackFromCartIncrement: (id: number, snack: Snack) => void
+  snackFromCartDecrement: (id: number, snack: Snack) => void
+  confirmOrder: () => void
 }
 
 interface CartProviderProps {
@@ -65,15 +55,34 @@ export function CartProvider ({ children } : CartProviderProps) {
 
     toast.success(`${snackEmoji(snack.snack)} ${snack.name} adiciondo nos pedidos`)
     setCart(newCart)
+}
+
+  function removeSnackFromCart (id: number, snack: Snack) {}
+
+  function updateSnackQuality (id: number, snack: Snack, newQuantity: number) {}
+
+  function snackFromCartIncrement (id: number, snack: Snack) {
+    updateSnackQuality(id, snack, snack.quantity + 1)
   }
 
-  function removeSnackFromCart (id: number, snack: Snack) {
-
+  function snackFromCartDecrement (id: number, snack: Snack) {
+    updateSnackQuality(id, snack, snack.quantity - 1)
   }
+
+  function confirmOrder () {}
 
   return (
-    <CartContext.Provider value={ {cart, addSnackIntoCart }}>
-      { children}
+    <CartContext.Provider
+      value={{
+        cart,
+        addSnackIntoCart,
+        removeSnackFromCart,
+        snackFromCartIncrement,
+        snackFromCartDecrement,
+        confirmOrder,
+      }}
+    >
+      {children}
     </CartContext.Provider>
   )
 }
