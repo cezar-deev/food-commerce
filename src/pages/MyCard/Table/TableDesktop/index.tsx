@@ -8,7 +8,7 @@ import minusImg from "../../../../assets/circle-minus.svg"
 import { Container } from "./style"
 
 export function TableDesktop() {
-  const { cart, removeSnackFromCart } = useCart()
+  const { cart, removeSnackFromCart, snackCartIncrement, snackCartDecrement} = useCart()
 
   return (
     <Container>
@@ -33,18 +33,12 @@ export function TableDesktop() {
               </td>
               <td>
                 <div>
-                  <button
-                    type="button"
-                    onClick={() => console.log(`decrementar sanack`, item)}
-                  >
-                    < img src={minusImg} alt="Remover quantidade" />
+                  <button type="button" onClick={() => snackCartDecrement(item)}>
+                    <img src={minusImg} alt="Remover quantidade" />
                   </button>
                   <span>{`${item.quantity}`.padStart(2, '0')}</span>
-                  <button
-                    type="button"
-                    onClick={() => console.log(`aumentar sanack`, item)}
-                  >
-                    < img src={plusImg} alt="Remover quantidade" />
+                  <button type="button" onClick={() => snackCartIncrement(item)}>
+                    <img src={plusImg} alt="Remover quantidade" />
                   </button>
                 </div>
               </td>

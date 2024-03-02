@@ -62,9 +62,25 @@ export function CartProvider ({ children } : CartProviderProps) {
 
     setCart(newCart)
   }
-
+///////////////////////////////
   function updateSnackQuality (snack: Snack, newQuantity: number) {
-    return
+    if (newQuantity <= 0 ) return
+
+    const snackExistentIncart = cart.find((item) => item.id === snack.id && item.snack === snack.snack)
+
+    if (!snackExistentIncart) return
+
+    const newCart = cart.map((item) => {
+      if(item.id === snackExistentIncart.id && item.snack === snackExistentIncart.snack) {
+        return {
+          ...item,
+          quantity: newQuantity,
+          subtotal: item.price * newQuantity,
+        }
+      }
+      return item
+    })
+    setCart(newCart)
   }
 
   function snackCartIncrement (snack: Snack) {
