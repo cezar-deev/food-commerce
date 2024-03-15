@@ -8,9 +8,7 @@ export  default function Payment() {
     <Container>
       <Head title='pagamento' />
       <OrderHeader />
-      <Inner>
-        Inner
-      </Inner>
+      <Inner>Formulario</Inner>
     </Container>
   )
 }
