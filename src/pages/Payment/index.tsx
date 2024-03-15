@@ -1,3 +1,16 @@
+import { Head } from "../../components/Head";
+import { OrderHeader } from "../../components/OrderHeader";
+import { Inner } from "../MyCard/style";
+import { Container } from "./styles";
+
 export  default function Payment() {
-  return <h1></h1>
+  return (
+    <Container>
+      <Head title='pagamento' />
+      <OrderHeader />
+      <Inner>
+        Inner
+      </Inner>
+    </Container>
+  )
 }
