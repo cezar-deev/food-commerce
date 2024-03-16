@@ -8,3 +8,13 @@ export const Container = styled.div`
 
 `
 
+export const Inner = styled.main`
+  background: ${({ theme }) => theme.colors.black};
+  padding: 2rem 2.5rem;
+  border-radius: 8px;
+`
+
+export const Form = styled.form`
+
+
+`
