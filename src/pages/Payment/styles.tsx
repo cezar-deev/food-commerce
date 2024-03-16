@@ -61,5 +61,11 @@ export const Form = styled.form`
     padding: 0.7rem;
   }
 
+  @media (max-width: 540px) {
+    .grouped {
+      flex-direction: column;
+    }
+  }
+
 
 `
