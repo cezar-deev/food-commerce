@@ -32,8 +32,19 @@ export  default function Payment() {
               <label htmlFor="document">CPF / CNPJ</label>
               <input type="text" id="document" name="document"/>
             </div>
-
           </div>
+
+          <h4>Endereço de entrega</h4>
+          <div className="field">
+           <label htmlFor='zipcode'>CEP</label>
+            <input 
+              type='text'
+              id='zipcode'
+              name='postal-code'
+              autoComplete="postal-code"
+              style={{ width:'120px' }}
+            />
+          </div> 
         </Form>
       </Inner>
     </Container>
