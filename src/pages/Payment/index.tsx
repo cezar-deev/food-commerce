@@ -1,4 +1,5 @@
 import { Head } from "../../components/Head";
+import { PayOrder } from "../../components/OrderCloseAction/PayOrder";
 import { OrderHeader } from "../../components/OrderHeader";
 import { Container, Inner, Form } from "./styles";
 
@@ -183,6 +184,7 @@ export  default function Payment() {
             </div>
           </div> 
         </Form>
+        <PayOrder />
       </Inner>
     </Container>
   )
