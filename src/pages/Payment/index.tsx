@@ -18,7 +18,7 @@ export  default function Payment() {
     handleSubmit,
     formState: { errors},  
   } = useForm<FieldValues>()
-  const onSubmit: SubmitHandler<FieldValues> = (data) => console.log(data)
+  const onSubmit: SubmitHandler<FieldValues> = (data) => console.log('data', data)
 
 
   return (
@@ -30,8 +30,15 @@ export  default function Payment() {
           <h4>Informações pessoais</h4>
 
           <div className="field">
-            <label htmlFor="full-name">Nome e sobrenome</label>
-            <input type="text" id="full-name" name="full-name" autoComplete="name" />
+            <label htmlFor="fullName">Nome e sobrenome</label>
+            <input 
+            type="text" 
+            id="fullName" 
+            autoComplete="name"
+            {...register('fullName', { required: true })} 
+            />
+            {errors.fullName && <p className='error'>O nome  e 
+            sobrenome é um campo obrigatório. </p>}
           </div>
 
           <div className="grouped">
