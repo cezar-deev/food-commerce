@@ -1,6 +1,9 @@
+import { useForm, FormSubmitHandler } from "react-hook-form";
+
 import { Head } from "../../components/Head";
 import { PayOrder } from "../../components/OrderCloseAction/PayOrder";
 import { OrderHeader } from "../../components/OrderHeader";
+
 import { Container, Inner, Form } from "./styles";
 
 export  default function Payment() {
@@ -183,8 +186,8 @@ export  default function Payment() {
               />
             </div>
           </div> 
+          <PayOrder/>
         </Form>
-        <PayOrder />
       </Inner>
     </Container>
   )
