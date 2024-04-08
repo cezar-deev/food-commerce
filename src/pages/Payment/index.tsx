@@ -24,7 +24,9 @@ export  default function Payment() {
     register,
     handleSubmit,
     formState: { errors},  
-  } = useForm<FieldValues>()
+  } = useForm<FieldValues>({
+    resolver: yupResolver(schema),
+  })
   const onSubmit: SubmitHandler<FieldValues> = (data) => console.log('data', data)
 
 
@@ -42,7 +44,7 @@ export  default function Payment() {
             type="text" 
             id="fullName" 
             autoComplete="name"
-            {...register('fullName', { required: true })} 
+            {...register('fullName')} 
             />
             {errors.fullName && <p className='error'>O nome  e 
             sobrenome é um campo obrigatório. </p>}
