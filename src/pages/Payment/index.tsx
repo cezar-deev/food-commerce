@@ -1,16 +1,23 @@
-import { useForm, FormSubmitHandler, SubmitHandler } from "react-hook-form";
+import {  SubmitHandler, useForm } from "react-hook-form";
+import { yupResolver } from '@hookform/resolvers/yup'
+import * as yup from 'yup'
 
 import { Head } from "../../components/Head";
 import { PayOrder } from "../../components/OrderCloseAction/PayOrder";
 import { OrderHeader } from "../../components/OrderHeader";
 
-import { Container, Inner, Form } from "./styles";
+import { Container, Form, Inner } from "./styles";
 
-type FieldValues = {
-  fullName: string
-  email: string
-  mobile: string
-}
+const schema = yup
+  .object({
+    fullName: yup.string().required(),
+    email: yup.string().email().required(),
+    mobile: yup.string().required(),
+  })
+  .required()
+
+type FieldValues = yup.InferType<typeof schema>
+
 
 export  default function Payment() {
   const {
