@@ -43,11 +43,7 @@ export  default function Payment() {
 
           <div className="field">
             <label htmlFor="fullName">Nome e sobrenome</label>
-            <input 
-            type="text" 
-            id="fullName" 
-            autoComplete="name"
-            {...register('fullName')} 
+            <input type="text" id="fullName" autoComplete="name"{...register('fullName')} 
             />
             {errors.fullName && <p className='error'>{errors.fullName.message}</p>}
           </div>
@@ -56,12 +52,14 @@ export  default function Payment() {
 
             <div className="field">
               <label htmlFor="email">E-mail</label>
-              <input type="text" id="email" name="email" autoComplete="email" />
+              <input type="text" id="email" autoComplete="email" {...register('email')} />
+              {errors.email && <p className='error'>{errors.email.message}</p>}
             </div>
 
             <div className="field">
               <label htmlFor="mobile">Celular</label>
-              <input type="tel" id="mobile" name="mobile" autoComplete="phone" />
+              <input type="tel" id="mobile" autoComplete="phone" {...register('mobile')} />
+              {errors.mobile && <p className='error'>{errors.mobile.message}</p>}
             </div>
 
             <div className="field">
