@@ -1,5 +1,5 @@
-import {  SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup'
+import {  SubmitHandler, useForm } from "react-hook-form";
 import * as yup from 'yup'
 
 import { Head } from "../../components/Head";
@@ -10,7 +10,10 @@ import { Container, Form, Inner } from "./styles";
 
 const schema = yup
   .object({
-    fullName: yup.string().required(),
+    fullName: yup
+    .string()
+    .required('Nome e sobrenome são obrigatórios')
+    .min(3, 'Nome e sobrenome muito curto.'),
     email: yup.string().email().required(),
     mobile: yup.string().required(),
   })
@@ -46,8 +49,7 @@ export  default function Payment() {
             autoComplete="name"
             {...register('fullName')} 
             />
-            {errors.fullName && <p className='error'>O nome  e 
-            sobrenome é um campo obrigatório. </p>}
+            {errors.fullName && <p className='error'>{errors.fullName.message}</p>}
           </div>
 
           <div className="grouped">
