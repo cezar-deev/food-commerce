@@ -1,5 +1,5 @@
 import { yupResolver } from '@hookform/resolvers/yup'
-import {  SubmitHandler, useForm } from "react-hook-form";
+import {  SubmitHandler, useForm, Controller } from "react-hook-form";
 import * as yup from 'yup'
 import { IMaskInput } from 'react-imask';
 
@@ -25,6 +25,7 @@ type FieldValues = yup.InferType<typeof schema>
 
 export  default function Payment() {
   const {
+    control,
     register,
     handleSubmit,
     formState: { errors},  
