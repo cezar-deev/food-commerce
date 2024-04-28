@@ -50,7 +50,7 @@ export  default function Payment() {
              name='fullName'
              control={control}
              render={({ field }) => (
-              <input type="text" id="fullName" autoComplete="name"{...field}/>
+              <input type="text" id="fullName" autoComplete="name" {...field} />
              )}
             />
 
@@ -62,19 +62,32 @@ export  default function Payment() {
               <label htmlFor="email">E-mail</label>
 
               <Controller
-             name='email'
-             control={control}
-             render={({ field }) => (
-              <input type="text" id="email" autoComplete="name"{...field}/>
-             )}
-            />
-
-              {errors.email && <p className='error'>{errors.email.message}</p>}
-            </div>
+                  name='email'
+                  control={control}
+                  render={({ field }) => (
+                <input type="text" id="email" autoComplete='email'{...field}/>
+              )}
+              />
+              
+                {errors.email && <p className='error'>{errors.email.message}</p>}
+              </div>
 
             <div className="field">
               <label htmlFor="mobile">Celular</label>
-              <input type="tel" id="mobile" autoComplete="phone" {...register('mobile')} />
+              <Controller
+                name='mobile'
+                control={control}
+                render={({ field }) => (
+                  <IMaskInput
+                    type='tel'
+                    id='mobile' 
+                    autoComplete='phone'
+                    mask={'(00) 90000-0000'}
+                    {...field}
+                  />
+                )}
+              />
+
               {errors.mobile && <p className='error'>{errors.mobile.message}</p>}
             </div>
 
