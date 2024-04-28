@@ -45,13 +45,15 @@ export  default function Payment() {
 
           <div className="field">
             <label htmlFor="fullName">Nome e sobrenome</label>
-            <input type="text" id="fullName" autoComplete="name"{...register('fullName')} 
-            />
+          
+            <input type="text" id="fullName" autoComplete="name"{...register('fullName')}/>
+
+
+
             {errors.fullName && <p className='error'>{errors.fullName.message}</p>}
           </div>
 
           <div className="grouped">
-
             <div className="field">
               <label htmlFor="email">E-mail</label>
               <input type="text" id="email" autoComplete="email" {...register('email')} />
