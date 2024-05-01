@@ -1,20 +1,20 @@
 import { yupResolver } from '@hookform/resolvers/yup'
-import {  SubmitHandler, useForm, Controller } from "react-hook-form";
+import { Controller, SubmitHandler, useForm } from 'react-hook-form'
+import { IMaskInput } from 'react-imask'
 import * as yup from 'yup'
-import { IMaskInput } from 'react-imask';
 
-import { Head } from "../../components/Head";
-import { PayOrder } from "../../components/OrderCloseAction/PayOrder";
-import { OrderHeader } from "../../components/OrderHeader";
+import { Head } from '../../components/Head'
+import { PayOrder } from '../../components/OrderCloseAction/PayOrder'
+import { OrderHeader } from '../../components/OrderHeader'
 
-import { Container, Form, Inner } from "./styles";
+import { Container, Form, Inner } from './styles'
 
 const schema = yup
   .object({
     fullName: yup
-    .string()
-    .required('Nome e sobrenome são obrigatórios')
-    .min(3, 'Nome e sobrenome muito curto.'),
+      .string()
+      .required('Nome e sobrenome são obrigatórios.')
+      .min(3, 'Nome e sobrenome muito curto.'),
     email: yup.string().email().required(),
     mobile: yup.string().required(),
   })
@@ -22,102 +22,70 @@ const schema = yup
 
 type FieldValues = yup.InferType<typeof schema>
 
-
-export  default function Payment() {
+export default function Payment() {
   const {
     control,
     register,
     handleSubmit,
-    formState: { errors},  
+    formState: { errors },
   } = useForm<FieldValues>({
     resolver: yupResolver(schema),
   })
   const onSubmit: SubmitHandler<FieldValues> = (data) => console.log('data', data)
 
-
   return (
     <Container>
-      <Head title='pagamento' />
+      <Head title='Pagamento' />
       <OrderHeader />
       <Inner>
         <Form onSubmit={handleSubmit(onSubmit)}>
           <h4>Informações pessoais</h4>
 
-          <div className="field">
-            <label htmlFor="fullName">Nome e sobrenome</label>
+          <div className='field'>
+            <label htmlFor='fullName'>Nome e sobrenome</label>
 
             <Controller
-             name='fullName'
-             control={control}
-             render={({ field }) => (
-              <input type="text" id="fullName" autoComplete="name" {...field} />
-             )}
+              name='fullName'
+              control={control}
+              render={({ field }) => (
+                <input type='text' id='fullName' autoComplete='name' {...field} />
+              )}
             />
 
             {errors.fullName && <p className='error'>{errors.fullName.message}</p>}
           </div>
 
-          <div className="grouped">
-            <div className="field">
-              <label htmlFor="email">E-mail</label>
+          <div className='grouped'>
+            <div className='field'>
+              <label htmlFor='email'>E-mail</label>
 
               <Controller
-                  name='email'
-                  control={control}
-                  render={({ field }) => (
-                <input type="text" id="email" autoComplete='email'{...field}/>
-              )}
+                name='email'
+                control={control}
+                render={({ field }) => (
+                  <input type='text' id='email' autoComplete='email' {...field} />
+                )}
               />
-              
-                {errors.email && <p className='error'>{errors.email.message}</p>}
-              </div>
 
-            <div className="field">
-              <label htmlFor="mobile">Celular</label>
+              {errors.email && <p className='error'>{errors.email.message}</p>}
+            </div>
+
+            <div className='field'>
+              <label htmlFor='mobile'>Celular</label>
               <Controller
                 name='mobile'
                 control={control}
                 render={({ field }) => (
                   <IMaskInput
                     type='tel'
-                    id='mobile' 
+                    id='mobile'
                     autoComplete='phone'
                     mask={'(00) 90000-0000'}
                     {...field}
                   />
                 )}
               />
-
               {errors.mobile && <p className='error'>{errors.mobile.message}</p>}
-            </div>
-
-            <div className="field">
-              <label htmlFor="document">CPF / CNPJ</label>
-              <input type="text" id="document" name="document"/>
-            </div>
-          </div>
-
-          <h4>Endereço de entrega</h4>
-          <div className="field">
-           <label htmlFor='zipcode'>CEP</label>
-            <input 
-              type='text'
-              id='zipcode'
-              name='postal-code'
-              autoComplete="postal-code"
-              style={{ width:'120px' }}
-            />
-          </div>
-
-          <div className='grouped'>
-            <div className='field'>
-              <label htmlFor='email'>E-mail</label>
-              <input type='email' name='email' id='email' autoComplete='email' />
-            </div>
-
-            <div className='field'>
-              <label htmlFor='mobile'>Celular</label>
-              <input type='tel' id='mobile' name='mobile' autoComplete='phone' />
             </div>
 
             <div className='field'>
@@ -244,8 +212,8 @@ export  default function Payment() {
                 autoComplete='cc-csc'
               />
             </div>
-          </div> 
-          <PayOrder/>
+          </div>
+          <PayOrder />
         </Form>
       </Inner>
     </Container>

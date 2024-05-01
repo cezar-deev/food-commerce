@@ -1,11 +1,10 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Container = styled.div`
   width: 100%;
   max-width: 58.75rem;
   padding: 2rem;
   margin: 0 auto;
-
 `
 
 export const Inner = styled.main`
@@ -31,7 +30,7 @@ export const Form = styled.form`
     display: flex;
     flex-direction: row;
     gap: 1rem;
-    width: 100%
+    width: 100%;
   }
 
   .field {
@@ -42,7 +41,7 @@ export const Form = styled.form`
   label {
     display: block;
     color: ${({ theme }) => theme.colors.white};
-    margin-bottom: 0%.5rem;
+    margin-bottom: 0.5rem;
   }
 
   input[type='email'],
@@ -50,12 +49,12 @@ export const Form = styled.form`
   input[type='tel'],
   input[type='text'],
   select {
-    flex-direction: 1;
-    background: ${({ theme }) => theme.colors.gray800};
-    color: ${({ theme }) => theme.colors.white};;
+    flex-grow: 1;
+    background-color: ${({ theme }) => theme.colors.gray800};
+    color: ${({ theme }) => theme.colors.white};
     border: 1px solid transparent;
     border-radius: 4px;
-    transition: all 0.s2;
+    transition: all 0.2s;
     height: 42px;
     width: 100%;
     margin: 0 0 1rem;
@@ -67,6 +66,4 @@ export const Form = styled.form`
       flex-direction: column;
     }
   }
-
-
 `
