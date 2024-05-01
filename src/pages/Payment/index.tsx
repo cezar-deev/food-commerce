@@ -9,18 +9,7 @@ import { OrderHeader } from '../../components/OrderHeader'
 
 import { Container, Form, Inner } from './styles'
 
-const schema = yup
-  .object({
-    fullName: yup
-      .string()
-      .required('Nome e sobrenome são obrigatórios.')
-      .min(3, 'Nome e sobrenome muito curto.'),
-    email: yup.string().email().required(),
-    mobile: yup.string().required(),
-  })
-  .required()
-
-type FieldValues = yup.InferType<typeof schema>
+import { schema, FieldValues } from './validationSchema'
 
 export default function Payment() {
   const {
