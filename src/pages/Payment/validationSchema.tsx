@@ -1,4 +1,5 @@
 import { isValidCNPJ, isValidCPF, isValidPhone } from '@brazilian-utils/brazilian-utils'
+import { complement } from 'polished'
 import * as yup from 'yup'
 
 export const schema = yup
@@ -15,14 +16,25 @@ export const schema = yup
       .transform((value) => value.replace(/[^\d]/g, ''))
       .test('validateMobile', 'O celular inválido.', (value) => isValidPhone(value)),
     document: yup
-    .string()
-    .required('O CPF/CNPJ é obrigatório.')
-    .transform((value) => value.replace(/[^\d]/g, ''))
-    .test(
-      'validateMobile', 
-      'O CPF/CNPJ é inválido.', 
-      (value) => isValidCPF(value) || isValidCNPJ(value)
-    ),
+      .string()
+      .required('O CPF/CNPJ é obrigatório.')
+      .transform((value) => value.replace(/[^\d]/g, ''))
+      .test(
+        'validateMobile', 
+        'O CPF/CNPJ é inválido.', 
+        (value) => isValidCPF(value) || isValidCNPJ(value),
+      ),
+    zipCode: yup
+      .string()
+      .required('O CEP é obrigatório.')
+      .transform((val) => val.replace(/[^\d]/g, '')),
+    street : yup.string().required('O endereço é obrigatório.'),
+    number : yup.string().required('O número é obrigatório.'),
+    complement : yup.string(),
+    neighborhood : yup.string().required('O bairro é obrigatório.'),
+    city : yup.string().required('A cidade é obrigatória.'),
+    state : yup.string().required('O estadoé obrigatório.'),
+      
   })
   .required()
 
