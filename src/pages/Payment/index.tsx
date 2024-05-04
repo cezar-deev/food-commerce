@@ -101,19 +101,40 @@ export default function Payment() {
           <h4>Endereço de entrega</h4>
 
           <div className='field'>
-            <label htmlFor='zipcode'>CEP</label>
-            <input
-              type='text'
-              id='zipcode'
-              name='zipcode'
-              autoComplete='postal-code'
-              style={{ width: '120px' }}
-            />
+            <label htmlFor='zipCode'>CEP</label>
+            <Controller
+                name='zipCode'
+                control={control}         
+                render={({ field }) => (
+                  <IMaskInput
+                    type='text'
+                    id='zipCode'
+                    style={{ width: '120px' }}
+                    mask={'00000-000'}
+                    {...field}
+                  />
+                )}
+              />
+              {errors.zipCode && <p className='error'>{errors.zipCode.message}</p>}
           </div>
 
           <div className='field'>
             <label htmlFor='street'>Endereço</label>
             <input type='text' id='street' name='street' />
+            <Controller
+                name='street'
+                control={control}         
+                render={({ field }) => (
+                  <IMaskInput
+                    type='text'
+                    id='street'
+                    style={{ width: '120px' }}
+                    mask={'00000-000'}
+                    {...field}
+                  />
+                )}
+              />
+              {errors.zipCode && <p className='error'>{errors.zipCode.message}</p>}
           </div>
 
           <div className='grouped'>
