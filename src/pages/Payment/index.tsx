@@ -209,9 +209,10 @@ export default function Payment() {
                   </select>
                 )}
               />
+              {errors.state && <p className='error'>{errors.state.message}</p>}
             </div>
           </div>
-          
+
           <h4>Pagamento</h4>
 
           <div className='field'>
