@@ -38,8 +38,11 @@ export const schema = yup
     .string()
     .required('O número do cartão é obrigatório.')
     .transform((val) => val.replace(/[^\d]/g, ''))
-    .test('validateCreditCardNumber', 'O número do cartão é Inválido.', (value) =>{})
-      
+    .test(
+      'validateCreditCardNumber',
+      'O número do cartão é Inválido.', 
+      (value) => isValidCreditCard.number(value).isValid
+    ) 
   })
   .required()
 
