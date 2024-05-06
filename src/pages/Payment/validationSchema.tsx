@@ -34,15 +34,20 @@ export const schema = yup
     neighborhood : yup.string().required('O bairro é obrigatório.'),
     city : yup.string().required('A cidade é obrigatória.'),
     state : yup.string().required('O estadoé obrigatório.'),
-    creditCardNumber : yup
-    .string()
-    .required('O número do cartão é obrigatório.')
-    .transform((val) => val.replace(/[^\d]/g, ''))
-    .test(
-      'validateCreditCardNumber',
-      'O número do cartão é Inválido.', 
-      (value) => isValidCreditCard.number(value).isValid
-    ) 
+      creditCardNumber : yup
+      .string()
+      .required('O número do cartão é obrigatório.')
+      .transform((val) => val.replace(/[^\d]/g, ''))
+      .test(
+        'validateCreditCardNumber',
+        'O número do cartão é Inválido.', 
+        (value) => isValidCreditCard.number(value).isValid
+      ),
+    creditCardHolder: yup
+      .string()
+      .required('O do titular é obrigatório.')
+      .min(3, 'O nome do titular deve ser completo.')
+      .matches(/(\w.+\s).+/gi, 'O nome do titular deve conter o sobrenome.')
   })
   .required()
 
