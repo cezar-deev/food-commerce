@@ -1,5 +1,5 @@
 import { isValidCNPJ, isValidCPF, isValidPhone } from '@brazilian-utils/brazilian-utils'
-import { complement } from 'polished'
+import isValidCreditCard from 'card-validator'
 import * as yup from 'yup'
 
 export const schema = yup
@@ -34,6 +34,11 @@ export const schema = yup
     neighborhood : yup.string().required('O bairro é obrigatório.'),
     city : yup.string().required('A cidade é obrigatória.'),
     state : yup.string().required('O estadoé obrigatório.'),
+    creditCardNumber : yup
+    .string()
+    .required('O número do cartão é obrigatório.')
+    .transform((val) => val.replace(/[^\d]/g, ''))
+    .test('validateCreditCardNumber', 'O número do cartão é Inválido.', (value) =>{})
       
   })
   .required()
