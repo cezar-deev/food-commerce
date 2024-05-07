@@ -1,6 +1,6 @@
 import { yupResolver } from '@hookform/resolvers/yup'
 import { Controller, SubmitHandler, useForm } from 'react-hook-form'
-import { IMaskInput } from 'react-imask'
+import { IMask, IMaskInput } from 'react-imask'
 import * as yup from 'yup'
 
 import { Head } from '../../components/Head'
@@ -219,12 +219,12 @@ export default function Payment() {
             <label htmlFor='credit-card-number'>Número do cartão</label>
            
              <Controller
-                name='creditCardNumber'
+                name='creditCardExpiration'
                 control={control}
                 render={({ field }) => (
                   <IMaskInput
                     type='text'
-                    id='creditCardNumber'
+                    id='creditCardExpiration'
                       mask={[
                         {
                           mask: '0000 000000 0000',
@@ -242,7 +242,7 @@ export default function Payment() {
                   />
                 )}
               />
-              {errors.creditCardNumber && <p className='error'>{errors.creditCardNumber.message}</p>}
+              {errors.creditCardExpiration && <p className='error'>{errors.creditCardExpiration.message}</p>}
           </div>
 
           <div className='field'>
@@ -264,6 +264,35 @@ export default function Payment() {
                 name='credit-card-expiration'
                 autoComplete='cc-exp'
               />
+              <Controller
+                name='creditCardExpiration'
+                control={control}
+                render={({ field }) => (
+                  <IMaskInput
+                    type='text'
+                    id='creditCardExpiration'
+                      mask={[
+                        {
+                          mask: 'MM/YY',
+                          blocks: {
+                            MM: {
+                              mask: IMask.MaskedRange,
+                              from:1,
+                              to: 12,
+                            },
+                            YY: {
+                              mask: IMask.MaskedRange,
+                              from: 0,
+                              to: 99,
+                            },
+                          },
+                        },
+                      ]}
+                    {...field}
+                  />
+                )}
+              />
+              {errors.creditCardExpiration && <p className='error'>{errors.creditCardExpiration.message}</p>}
             </div>
 
             <div className='field'>

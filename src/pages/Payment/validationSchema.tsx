@@ -48,7 +48,7 @@ export const schema = yup
       .required('O do titular é obrigatório.')
       .min(3, 'O nome do titular deve ser completo.')
       .matches(/(\w.+\s).+/gi, 'O nome do titular deve conter o sobrenome.'),
-    credCardExpiration: yup
+    creditCardExpiration: yup
       .string()
       .required('A data de dalidade é obrigatória.')
       .transform((value)=> {
