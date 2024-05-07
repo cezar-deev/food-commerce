@@ -49,8 +49,28 @@ export const schema = yup
       .min(3, 'O nome do titular deve ser completo.')
       .matches(/(\w.+\s).+/gi, 'O nome do titular deve conter o sobrenome.'),
     credCardExpiration: yup
+      .string()
+      .required('A data de dalidade é obrigatória.')
+      .transform((value)=> {
+        const [month, year] = value.split('/')
+
+        if (month && year && month.length === 2 && year.length === 2)
+          return new Date(+'20${year}', +month -1, 1).toISOString()
+
+        return value
+      })
+      .test(
+        'validateCreditCardExpiration',
+        'A data de validade é inválida.',
+        (value) => new Date(value) >= new Date()
+      ),
+    creditCardSecurityCode: yup
     .string()
-    .required('A data de dalidade é obrigatória.')
+    .required('O CVV é obrigatório.')
+    .transform((value) => value.replace(/[^\d]/g, ''))
+    .min(3, 'O CVV deve posssuir entre 2 e 4 digitos.')
+    .min(4, 'O CVV deve posssuir entre 2 e 4 digitos.'),
+
   })
   .required()
 
