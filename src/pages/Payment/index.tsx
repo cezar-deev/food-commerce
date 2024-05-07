@@ -258,12 +258,7 @@ export default function Payment() {
           <div className='grouped'>
             <div className='field'>
               <label htmlFor='credit-card-expiration'>Validade (MM/AA)</label>
-              <input
-                type='text'
-                id='credit-card-expiration'
-                name='credit-card-expiration'
-                autoComplete='cc-exp'
-              />
+
               <Controller
                 name='creditCardExpiration'
                 control={control}

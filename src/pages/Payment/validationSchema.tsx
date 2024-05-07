@@ -50,12 +50,12 @@ export const schema = yup
       .matches(/(\w.+\s).+/gi, 'O nome do titular deve conter o sobrenome.'),
     creditCardExpiration: yup
       .string()
-      .required('A data de dalidade é obrigatória.')
+      .required('A data de validade é obrigatória.')
       .transform((value)=> {
         const [month, year] = value.split('/')
 
         if (month && year && month.length === 2 && year.length === 2)
-          return new Date(+'20${year}', +month -1, 1).toISOString()
+          return new Date(+`20${year}`, +month - 1, 1).toISOString()
 
         return value
       })
@@ -69,8 +69,7 @@ export const schema = yup
     .required('O CVV é obrigatório.')
     .transform((value) => value.replace(/[^\d]/g, ''))
     .min(3, 'O CVV deve posssuir entre 2 e 4 digitos.')
-    .min(4, 'O CVV deve posssuir entre 2 e 4 digitos.'),
-
+    .min(4, 'O CVV deve posssuir entre 2 e 4 digitos.')
   })
   .required()
 
